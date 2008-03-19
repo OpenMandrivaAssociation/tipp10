@@ -15,7 +15,7 @@ Url: http://www.tipp10.de/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires: locales-de
 Requires: qt4-database-plugin-sqlite-lib
-BuildRequires: qt4-devel
+BuildRequires: qt4-devel >= 4.2.2
 
 %description
 Learn touch typing with a nice and easy graphical user interface. At
