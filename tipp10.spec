@@ -1,8 +1,8 @@
 %define name tipp10
 %define version 2.0.1
 %define fversion 2-0-1
-%define release %mkrel 1
-
+%define release %mkrel 2
+%define qtver 4.2.2
 Summary: German touch typing learning program
 Name: %{name}
 Version: %{version}
@@ -14,8 +14,8 @@ Group: Education
 Url: http://www.tipp10.de/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires: locales-de
-Requires: qt4-database-plugin-sqlite-lib
-BuildRequires: qt4-devel >= 4.2.2
+Requires: qt4-database-plugin-sqlite-%_lib >= %qtver
+BuildRequires: qt4-devel >= %qtver
 
 %description
 Learn touch typing with a nice and easy graphical user interface. At
