@@ -1,7 +1,7 @@
 %define name tipp10
 %define version 2.0.1
 %define fversion 2-0-1
-%define release %mkrel 4
+%define release %mkrel 5
 %define qtver 4.2.2
 Summary: German touch typing learning program
 Name: %{name}
