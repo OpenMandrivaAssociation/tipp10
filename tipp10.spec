@@ -1,7 +1,7 @@
 %define name tipp10
-%define version 2.0.1
-%define fversion 2-0-1
-%define release %mkrel 5
+%define version 2.0.3
+%define fversion 2-0-3
+%define release %mkrel 1
 %define qtver 4.2.2
 Summary: German touch typing learning program
 Name: %{name}
@@ -14,7 +14,11 @@ Group: Education
 Url: http://www.tipp10.de/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires: locales-de
+%if %mdvver >= 200910
+Requires: qt4-database-plugin-sqlite
+%else
 Requires: qt4-database-plugin-sqlite-%_lib >= %qtver
+%endif
 BuildRequires: qt4-devel >= %qtver
 
 %description
@@ -22,7 +26,7 @@ Learn touch typing with a nice and easy graphical user interface. At
 the moment, the program comes with German texts only.
 
 %prep
-%setup -q -n source
+%setup -q -n %name
 find -name Thumbs.db |xargs rm -fv
 
 %build
