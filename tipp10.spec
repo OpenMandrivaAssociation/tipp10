@@ -1,7 +1,7 @@
 %define name tipp10
 %define version 2.0.3
 %define fversion 2-0-3
-%define release %mkrel 2
+%define release %mkrel 3
 %define qtver 4.2.2
 Summary: German touch typing learning program
 Name: %{name}
@@ -9,6 +9,7 @@ Version: %{version}
 Release: %{release}
 Source0: tipp10_source_v%{fversion}.zip
 Source1: %name.png
+Patch0: tipp10-gcc4.5.patch
 License: GPLv2+
 Group: Education
 Url: http://www.tipp10.de/
@@ -27,6 +28,7 @@ the moment, the program comes with German texts only.
 
 %prep
 %setup -q -n %name
+%apply_patches
 find -name Thumbs.db |xargs rm -fv
 
 %build
