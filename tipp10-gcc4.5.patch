@@ -1,0 +1,104 @@
+diff -p -up tipp10/sql/chartablesql.cpp~ tipp10/sql/chartablesql.cpp
+--- tipp10/sql/chartablesql.cpp~	2008-10-30 00:37:34.000000000 +0100
++++ tipp10/sql/chartablesql.cpp	2010-09-21 11:11:12.000000000 +0200
+@@ -50,7 +50,7 @@ QVariant CharSqlModel::data(const QModel
+ 			// Read the unicode value
+ 			unicode = value.toInt();
+ 			// Convert unicode to a char
+-			unicodeToChar = QString::QString(QChar(unicode)); //"\'" + QString::QString(QChar(unicode)) + "\'";
++			unicodeToChar = QString(QChar(unicode)); //"\'" + QString::QString(QChar(unicode)) + "\'";
+ 			return unicodeToChar;
+ 		} else {
+ 			// Last column (error weight)
+diff -p -up tipp10/sql/startsql.cpp~ tipp10/sql/startsql.cpp
+--- tipp10/sql/startsql.cpp~	2008-11-07 19:53:02.000000000 +0100
++++ tipp10/sql/startsql.cpp	2010-09-21 11:11:58.000000000 +0200
+@@ -338,7 +338,7 @@ bool StartSql::updateOwnLesson(QString l
+ 		for (i = 0; i < content.size(); i++) {
+ 			//simplifiedContent = QString::QString(
+ 			//	content.at(i)).replace(QChar(0x27), "''", Qt::CaseSensitive).simplified();
+-			simplifiedContent = trim(QString::QString(
++			simplifiedContent = trim(QString(
+ 				content.at(i)).replace(QChar(0x27), "''", Qt::CaseSensitive));
+ 
+ 			if (!query.exec("INSERT INTO own_content VALUES(NULL,'" +
+diff -p -up tipp10/widget/lessondialog.cpp~ tipp10/widget/lessondialog.cpp
+--- tipp10/widget/lessondialog.cpp~	2008-11-07 12:31:48.000000000 +0100
++++ tipp10/widget/lessondialog.cpp	2010-09-21 11:10:06.000000000 +0200
+@@ -89,7 +89,7 @@ void LessonDialog::updateContent() {
+ 			*lessonData = lineLessonContent->toPlainText().split("\n", QString::SkipEmptyParts);
+ 			// Delete empty lines
+ 			for (int i = 0; i < lessonData->size(); i++) {
+-				if (QString::QString(lessonData->at(i).toLocal8Bit().constData()).simplified() == "") {
++				if (QString(lessonData->at(i).toLocal8Bit().constData()).simplified() == "") {
+ 					lessonData->removeAt(i);
+ 				}
+ 			}
+@@ -268,7 +268,7 @@ void LessonDialog::clickSave() {
+ 	contentList = lineLessonContent->toPlainText().split("\n", QString::SkipEmptyParts);
+ 	// Delete empty lines
+ 	for (i = 0; i < contentList.size(); i++) {
+-		if (QString::QString(contentList.at(i).toLocal8Bit().constData()).simplified() == "") {
++		if (QString(contentList.at(i).toLocal8Bit().constData()).simplified() == "") {
+ 			contentList.removeAt(i);
+ 		}
+ 	}
+diff -p -up tipp10/widget/settingspages.cpp~ tipp10/widget/settingspages.cpp
+--- tipp10/widget/settingspages.cpp~	2008-11-07 15:36:42.000000000 +0100
++++ tipp10/widget/settingspages.cpp	2010-09-21 11:08:57.000000000 +0200
+@@ -617,7 +617,7 @@ void DatabasePage::writeSettings() {
+ 	QSettings settings;
+ 	#endif
+ 	settings.beginGroup("database");
+-	settings.setValue("pathpro", lineDatabasePath->text() + "/" + QString::QString(APP_USER_DB));
++	settings.setValue("pathpro", lineDatabasePath->text() + "/" + QString(APP_USER_DB));
+ 	settings.endGroup();
+ }
+ 
+diff -p -up tipp10/widget/tickerboard.cpp~ tipp10/widget/tickerboard.cpp
+--- tipp10/widget/tickerboard.cpp~	2008-10-30 00:37:34.000000000 +0100
++++ tipp10/widget/tickerboard.cpp	2010-09-21 11:07:12.000000000 +0200
+@@ -96,7 +96,7 @@ void TickerBoard::startTicker() {
+ 
+ 		if (tickerSpeed == 50) {
+ 			scrollOffset = 290;
+-			scroll(-290, 0, QRect::QRect(10, 15, 590, 35)); //contentsRect());
++			scroll(-290, 0, QRect(10, 15, 590, 35)); //contentsRect());
+ 		}
+ 
+ 		startFlag = true;
+@@ -150,7 +150,7 @@ void TickerBoard::changeChar() {
+ 			scrollOffset = 0;
+ 		} else {
+ 			scrollOffset = 290;
+-			scroll(-290, 0, QRect::QRect(10, 15, 590, 35)); //contentsRect());
++			scroll(-290, 0, QRect(10, 15, 590, 35)); //contentsRect());
+ 		}
+ 		splitLesson();
+ 	}
+@@ -239,7 +239,7 @@ void TickerBoard::progress() {
+ 
+ 				// Move ticker 1 pixel to left
+ 				scrollOffset++;
+-				scroll(-1, 0, QRect::QRect(10, 15, 590, 35)); //contentsRect());
++				scroll(-1, 0, QRect(10, 15, 590, 35)); //contentsRect());
+ 
+ 				if ((lessonOffset - scrollOffset) <= 30) {
+ 					setSpeed(tickerSpeed);
+@@ -262,14 +262,14 @@ void TickerBoard::progress() {
+ 			// 160 pixels overage (because the user must see at least the next word)
+ 			if ((lessonOffset - scrollOffset) > 200) {
+ 				scrollOffset += (lessonOffset - scrollOffset) - 200;
+-				scroll(-((lessonOffset - scrollOffset) - 200), 0, QRect::QRect(10, 15, 590, 35)); //contentsRect());
++				scroll(-((lessonOffset - scrollOffset) - 200), 0, QRect(10, 15, 590, 35)); //contentsRect());
+ 			}
+ 		} else {
+ 			// If the user types faster than the ticker, move ticker faster after
+ 			// 160 pixels overage (because the user must see at least the next word)
+ 			if ((lessonOffset - scrollOffset) > 280) {
+ 				scrollOffset += 570;
+-				scroll(-570, 0, QRect::QRect(10, 15, 590, 35)); //contentsRect());
++				scroll(-570, 0, QRect(10, 15, 590, 35)); //contentsRect());
+ 			}
+ 
+ 		}
