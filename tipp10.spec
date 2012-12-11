@@ -70,3 +70,38 @@ rm -rf %{buildroot}
 %_libdir/%name
 %_datadir/pixmaps/%name.png
 %_datadir/applications/mandriva-%name.desktop
+
+
+%changelog
+* Thu Sep 22 2011 Götz Waschk <waschk@mandriva.org> 2.0.3-4mdv2012.0
++ Revision: 700803
+- rebuild
+
+* Tue Sep 21 2010 Götz Waschk <waschk@mandriva.org> 2.0.3-3mdv2011.0
++ Revision: 580369
+- fix build
+
+* Sun Sep 20 2009 Thierry Vignaud <tv@mandriva.org> 2.0.3-2mdv2010.0
++ Revision: 445468
+- rebuild
+
+* Fri Feb 13 2009 Götz Waschk <waschk@mandriva.org> 2.0.3-1mdv2009.1
++ Revision: 340018
+- new version
+- fix qt dep on 2009.1+
+
+* Sun Aug 03 2008 Thierry Vignaud <tv@mandriva.org> 2.0.1-5mdv2009.0
++ Revision: 261563
+- rebuild
+- rebuild
+
+* Thu Mar 20 2008 Götz Waschk <waschk@mandriva.org> 2.0.1-2mdv2008.1
++ Revision: 189100
+- fix qt dep on x86_64
+- fix buildrequires
+
+* Wed Mar 19 2008 Götz Waschk <waschk@mandriva.org> 2.0.1-1mdv2008.1
++ Revision: 188809
+- import tipp10
+
+
