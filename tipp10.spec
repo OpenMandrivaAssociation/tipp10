@@ -28,7 +28,7 @@ the moment, the program comes with German texts only.
 
 %prep
 %setup -q -n %name
-%apply_patches
+%autopatch -p1
 find -name Thumbs.db |xargs rm -fv
 
 %build
