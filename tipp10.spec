@@ -12,7 +12,7 @@ Source1: %name.png
 Patch0: tipp10-gcc4.5.patch
 License: GPLv2+
 Group: Education
-Url: http://www.tipp10.de/
+Url: https://www.tipp10.de/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires: locales-de
 %if %mdvver >= 200910
