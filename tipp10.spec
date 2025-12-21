@@ -20,6 +20,7 @@ Requires: qt4-database-plugin-sqlite
 %else
 Requires: qt4-database-plugin-sqlite-%_lib >= %qtver
 %endif
+BuildRequires:	make
 BuildRequires: qt4-devel >= %qtver
 
 %description
