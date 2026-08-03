@@ -1,13 +1,12 @@
 %define name tipp10
-%define version 2.0.3
-%define fversion 2-0-3
+%define version 3.3.4
 %define release 5
 %define qtver 4.2.2
 Summary: German touch typing learning program
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: tipp10_source_v%{fversion}.zip
+Source0: tipp10-v%{version}.tar.gz
 Source1: %name.png
 Patch0: tipp10-gcc4.5.patch
 License: GPLv2+
@@ -28,7 +27,7 @@ Learn touch typing with a nice and easy graphical user interface. At
 the moment, the program comes with German texts only.
 
 %prep
-%setup -q -n %name
+%setup -q -n tipp10-v%{version}
 %autopatch -p1
 find -name Thumbs.db |xargs rm -fv
 
